@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\RegisterController;
 
 /*
@@ -37,4 +38,5 @@ Route::middleware('auth')->group(function(){
     Route::delete('/delete/{id}',[UserController::class,'delete'])->name('delete');
     Route::get('add',[UserController::class,'add'])->name('add');
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
+    Route::resource('member', MemberController::class);
 });
